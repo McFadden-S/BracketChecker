@@ -8,7 +8,7 @@ import java.util.List;
  * 
  * Assignment:      3.2
  *
- * Description:     class implements a String stack data structure
+ * Description:     class implements a char stack data structure
  *
  * 
  * *************************************************************
@@ -26,7 +26,7 @@ import java.util.List;
  	// ********** instance variable **********
  	
         int sizeS = 0; //current size of stack
-        ArrayList<String> stack = new ArrayList<>(); //holds stack values
+        ArrayList<Character> stack = new ArrayList<>(); //holds stack values
         
      
  	// ********** constructors ***********
@@ -45,7 +45,7 @@ import java.util.List;
          Interface: size (int), values (int[])
          Return: none
         */
-        public Stack(String[] n){
+        public Stack(char[] n){
             for(int i = 0; i < n.length; i++){
                 stack.add(n[i]);
                 sizeS++;
@@ -74,8 +74,8 @@ import java.util.List;
         Interface: none
         Returns: int of top value of stack, zero if none
         */
-        public String Peek(){
-            String n = "";
+        public char Peek(){
+            char n = 0;
             
             if (!(this.Empty())){
                 n = stack.get(sizeS-1);
@@ -91,7 +91,7 @@ import java.util.List;
         interface: value to be added (int)
         returns: none
         */
-        public void Push(String n){
+        public void Push(char n){
             stack.add(n);
             sizeS++;
         }//end of push
@@ -101,8 +101,8 @@ import java.util.List;
         interface none
         returns value removed
         */
-        public String Pop(){
-            String n = "";
+        public char Pop(){
+            char n = 0;
             
             if(!(this.Empty())){
                 n = stack.get(sizeS-1);
