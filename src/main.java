@@ -7,7 +7,6 @@
 // Description:	This program will read in string of brackets and print whether
 //              they are balenced
 //
-//
 // Input:	Input of the strings will come from a file 
 //
 // Output:	output the brackets read and whether balanced or not
@@ -78,25 +77,24 @@ public class main
         private static boolean CheckBracket(String strin){
             boolean check = true;
             char[] input = strin.toCharArray();
-            Stack stack = new Stack(input);
+            int index = 0;
             
-            if(!stack.Empty()){
+            if(input.length!=0){
                 Stack opens = new Stack();
-                char current = stack.Pop();
                 
-                if(check) do{
-                    if((current == ')' || current == '}' || current == ']') && !stack.Empty()){
-                        opens.Push(current);
-                        current = stack.Pop();
+                while(index < input.length && check){
+                    if((input[index] == '(' || input[index] == '{' || input[index] == '[') && (index < input.length-1)){
+                        opens.Push(input[index]);
+                        index++;
                     }//end of if opening
-                    else if (opens.Peek() == ')' && current == '(' || opens.Peek()-2 == current){
+                    else if (opens.Peek() == '(' && input[index] == ')' || opens.Peek()+2 == input[index]){
                         opens.Pop();
-                        current = stack.Pop();   
+                        index++;  
                     }//end of else if current matches type current open
                     else{
                         check = false;
                     }//end of else 
-                }while(current !=0 && check);//end of if check
+                }//end of while
                 
                 if(!opens.Empty()){
                     check = false;
